@@ -1,12 +1,17 @@
 import React, { useState } from "react";
+import Form2 from "./Form";
+import Basic from "./Form3"; 
 // first name , last name , address, gender, age, roll no, subjects: select 10, 
 export default function App() {
   return (
     <div>
-      <Form />
+      {/* <Form /> */}
+      {/* <Form2 /> */}
+      <Basic />
     </div>
   );
 }
+
 function Form() {
   const [firstName, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
@@ -26,10 +31,9 @@ function Form() {
         Address: ${address}
         Subject:  ${subject}
         `)
-    setIsClick(true)
   }
   return (
-    <div className="flex items-center justify-center mt-10">
+    <div className="flex items-center justify-center  mt-10">
 
       {/* form */}
       <form className="w-1/2 bg-slate-300 rounded-md p-10 space-y-5 ">
@@ -157,7 +161,7 @@ function Form() {
         {/* submit button */}
         <button 
         onClick={handleSubmit}
-        className="bg-slate-50 p-2 rounded-md hover:bg-slate-500"
+        className="bg-slate-50 p-2 rounded-md hover:bg-slate-400"
         >Submit</button>
       </form>
     </div>
