@@ -1,11 +1,23 @@
 import React from 'react'
-import MainContainer from './components/MainContainer'
+import { Route, Routes, BrowserRouter} from 'react-router'
+import Home from './pages/Home'
+import Store from './pages/Store'
+import Footer from './components/Footer'
+import Header from './components/Header'
 
 function App() {
   return (
     <div>
-      <MainContainer />
       
+      
+      <Header />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/store" element={<Store />} />
+        </Routes>
+      </BrowserRouter>
+      <Footer />
     </div>
   )
 }

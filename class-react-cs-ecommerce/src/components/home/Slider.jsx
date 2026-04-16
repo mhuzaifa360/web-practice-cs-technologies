@@ -1,6 +1,6 @@
 import React from 'react'
 
-function LowerNav() {
+function Slider() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function LowerNav() {
   )
 }
 
-export default LowerNav
+export default Slider
