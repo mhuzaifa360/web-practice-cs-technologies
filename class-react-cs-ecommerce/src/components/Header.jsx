@@ -2,31 +2,70 @@ import React from 'react'
 import { IoIosSearch } from "react-icons/io";
 import { Link } from 'react-router';
 import { menus } from '../assets/constants/navbar';
+import cart from '../assets/images/home/cart.svg'
+import user from '../assets/images/home/user.svg'
 
 
 
 
 function Header() {
   return (
+    // full header start
     <div className=''>
+
         {/* top navbar */}
-      <div className='h-8 border-b-2'>
-        
+      <div className='h-8 flex justify-around '>
+        {/* for language and usd */}
+          <div>
+            <form action="">
+              {/* for language */}
+              <select name="" id="">
+                <option value="">EN</option>
+              </select>
+              {/* for usd */}
+              <select name="" id="">
+                <option value="">USD</option>
+              </select>
+            </form>
+          </div>
+
+          {/* for track and wishlist */}
+          <div className='flex gap-3'>
+            <div>
+              <p>Track order</p>
+            </div>
+            <div>
+              <p>Wishlist</p>
+            </div>
+          </div>
       </div>
 
 
       {/* mid navbar */}
-      <div className='px-20 flex flex-row justify-between items-center bg-gray-300 h-[80px]'>
-        <div>
-            <h1>LOGO HERE</h1>
+      <div className='px-20 flex flex-row justify-between items-center h-[80px]'>
+        {/* for logo */}
+        <div className='h-[40px]'>
+            <h1 className='text-blue-600 font-bold text-2xl'>LOGO HERE</h1>
         </div>
-        <div className='flex justify-center'>
-            <form action="">
-                <input type="text" className='h-11'/>
+
+        {/* for search and categories */}
+        <div className='flex justify-center '>
+          {/*  */}
+            <form action="" className='h[40px]  '>
+              <select name="" id="" className='h-[100%] bg-[#F8F8F8] rounded-md'>
+                <option value="">All Categories</option>
+              </select>
+                <input type="text" className='h-11 border pl-5 rounded-md' placeholder='Search...'/>
             </form>
-            <button className='bg-[#2196F3] p-3'>
-            <IoIosSearch />
+            <button className='bg-[#2196F3] p-3 h-[40px] rounded-md'>
+            <IoIosSearch className='text-white'/>
             </button>
+        </div>
+
+        {/* for user icon */}
+        <div className='flex gap-5'>
+          <a href="#"><img src={cart} alt="" /></a>
+          <a href="#"><img src={user} alt="" /></a>
         </div>
 
 
@@ -51,11 +90,11 @@ function Header() {
         */}
       </div>
         {/* lower navbar */}
-        <div className='bg-[#2196F3] '>
+        <div className='bg-[#2196F3] h-[49px] flex justify-evenly items-center text-white'>
             {
                 menus?.map((item)=>{
                     return(
-                        <Link key={item.id} to={item.pathValue} >{item.pathName}</Link>
+                        <Link key={item.id} to={item.pathName} >{item.pathValue}</Link>
                     )
                 })
             }

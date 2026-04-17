@@ -37,13 +37,7 @@ function Header() {
         <div key={index}>
           <Link
             to={item.pathname}
-            className={`
-        ${
-          location.pathname === item.pathname ? "bg-green-950 p-2 ml-5" : "bg-black ml-5"
-        }`}
-          >
-            {item.pathvalue}
-          </Link>
+            className={` ${ location.pathname === item.pathname ? "bg-green-950 p-2 ml-5" : "bg-black ml-5"}`} >{item.pathvalue}  </Link>
         </div>
       ))
       }
