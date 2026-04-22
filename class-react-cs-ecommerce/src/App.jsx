@@ -8,14 +8,20 @@ import Header from "./components/Header";
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/store" element={<Store />} />
+          {/* <Route path="/store" element={<Store />} /> */}
+          {/* <Route path="/mouse" element={<Mouse />} /> */}
+          {/* <Route path="/keyboard" element={<Keyboard />} /> */}
+          {/* <Route path="/accessories" element={<Accessories />} /> */}
+          {/* <Route path="/aboutUs" element={<AboutUs />} /> */}
+          {/* <Route path="/contactUs" element={<ContactUs />} /> */}
         </Routes>
         <Footer />
-      </BrowserRouter>
+
     </div>
   );
 }

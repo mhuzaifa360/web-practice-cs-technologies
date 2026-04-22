@@ -1,10 +1,10 @@
 import React from 'react'
+import Slider from '../components/home/Slider.jsx'
 
 function Home() {
   return (
     <div>
-      <h1>home</h1>
-      <p>this is home section</p>
+      <Slider />
     </div>
   )
 }

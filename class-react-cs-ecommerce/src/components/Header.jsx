@@ -49,13 +49,13 @@ function Header() {
         </div>
 
         {/* for search and categories */}
-        <div className='flex justify-center '>
+        <div className='flex justify-center w-[473px] h-[40px]'>
           {/*  */}
-            <form action="" className='h[40px]  '>
+            <form action="" className='h[40px] w-[100%] '>
               <select name="" id="" className='h-[100%] bg-[#F8F8F8] rounded-md'>
                 <option value="">All Categories</option>
               </select>
-                <input type="text" className='h-11 border pl-5 rounded-md' placeholder='Search...'/>
+                <input type="text" className='h-11 border pl-5 rounded-md w-[315px]' placeholder='Search...'/>
             </form>
             <button className='bg-[#2196F3] p-3 h-[40px] rounded-md'>
             <IoIosSearch className='text-white'/>
