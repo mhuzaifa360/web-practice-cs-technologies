@@ -16,10 +16,10 @@ function Handpicked() {
           {/* main large card */}
         <div className="w-[40%] h-[90%]">
           <div className="w-[467px] bg-[#F8F8F8] rounded-md p-3 relative hover:bg-[#DCF0FF]">
-            <div className="flex justify-center">
+            <div className="flex justify-center h-[70%]">
               <img src={products[0].image} alt="" className="w-[336px]" />
             </div>
-            <div>
+            <div className="h-[30%]">
               <Typography varient="p" effect="muted">
                 {products[0].category}
               </Typography>
@@ -48,17 +48,17 @@ function Handpicked() {
         <div className="flex flex-col w-[55%] h-[90%]  justify-evenly">
 
         {/* start left top */}
-        <div className="flex flex-row w-full  justify-evenly">
+        <div className="flex flex-row w-full  justify-evenly ">
           {products.slice(1, 3).map((item, key) => {
             return (
               <div
-                className="w-[276px] h-[282px] bg-[#F8F8F8] rounded-md p-3 relative justify-center  flex flex-col hover:bg-[#DCF0FF]"
+                className="w-[276px] h-[282px] bg-[#F8F8F8] rounded-md p-3 relative justify-evenly  flex flex-col hover:bg-[#DCF0FF]"
                 key={key}
               >
-                <div className="flex justify-center">
+                <div className="flex justify-center h-[60%]">
                   <img src={item.image} alt="" className="w-[224px]" />
                 </div>
-                <div>
+                <div className="h-[30%]">
                   <Typography varient="small" effect="muted">
                     {item.category}
                   </Typography>
@@ -67,7 +67,7 @@ function Handpicked() {
                   </Typography>
                   <Typography
                     varient="h5"
-                    style="font-semibold text-[#2196F3] absolute top-4"
+                    style="font-semibold text-[#2196F3] absolute top-1"
                   >
                     {item.currency}
                     {item.price}
@@ -94,10 +94,10 @@ function Handpicked() {
                 className="w-[181px] h-[169px] bg-[#F8F8F8] rounded-md p-3 relative justify-evenly  flex flex-col hover:bg-[#DCF0FF]"
                 key={key}
               >
-                <div className="flex justify-center">
-                  <img src={item.image} alt="" className="w-[60px]" />
+                <div className="flex justify-center h-[55%]">
+                  <img src={item.image} alt="" className=" h-full"  />
                 </div>
-                <div>
+                <div className="h-[45%] ">
                   <Typography varient="small" effect="muted ">
                     {item.category}
                   </Typography>
@@ -105,8 +105,8 @@ function Handpicked() {
                     {item.title}
                   </Typography>
                   <Typography
-                    varient="h6"
-                    style="font-semibold text-[#2196F3] absolute top-4"
+                    varient="small"
+                    style="font-semibold text-[#2196F3] absolute top-0"
                   >
                     {item.currency}
                     {item.price}
