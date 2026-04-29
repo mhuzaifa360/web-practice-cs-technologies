@@ -22,5 +22,6 @@ async function initializeApp() {
 }
 
 app.use('/v1', stdRoutes)
+app.use('/v1', currencyRoutes)
 initializeApp();
 
