@@ -2,7 +2,6 @@ import express from "express"
 import stdRoutes from './routes/stdRoutes.js'
 import database from "sequelize"
 import {connectDB} from './config/database.js'
-import { createStudent } from "./controllers/stdController.js"
 const app = express()
 const port = 3000
 
@@ -23,6 +22,5 @@ async function initializeApp() {
 }
 
 app.use('/v1', stdRoutes)
-app.use('/v1', createStudent)
 initializeApp();
 
