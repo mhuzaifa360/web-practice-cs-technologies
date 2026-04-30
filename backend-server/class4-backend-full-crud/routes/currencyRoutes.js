@@ -1,5 +1,5 @@
 import express from "express"
-import { createCurrency, deleteCurrency, getCurrency, getSingleCurrency, updateCurrency } from "../controllers/currencyController";
+import { createCurrency, deleteCurrency, getCurrency, getSingleCurrency, updateCurrency } from "../controllers/currencyController.js";
 const route = express.Router();
 
 

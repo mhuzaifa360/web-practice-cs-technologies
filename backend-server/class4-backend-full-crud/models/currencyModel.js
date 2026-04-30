@@ -7,27 +7,19 @@ const currency = database.define("currency",{
         primaryKey: true,
         autoIncrement: true,
     },
-    firstName: {
+    name: {
         type: DataTypes.STRING,
         allowNull: false,
 
     },
-    lastName: {
+    code: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    email: {
+    symbol: {
         type: DataTypes.STRING,
         allowNull: false
-    },
-    role: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
     }
 })
 
-export default student;
+export default currency;

@@ -1,5 +1,6 @@
 import express from "express"
 import stdRoutes from './routes/stdRoutes.js'
+import currencyRoutes from './routes/currencyRoutes.js'
 import database from "sequelize"
 import {connectDB} from './config/database.js'
 const app = express()

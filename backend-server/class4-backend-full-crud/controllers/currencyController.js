@@ -1,15 +1,14 @@
-// import std from "../constant/student.js";
-import currency from "../models/studentModel.js";
+import currency from "../models/currencyModel.js";
 
-// for create student
+// for create currency
 export const createCurrency = async (req, res) => {
   const clientData = req.body;
   try {
-    const studentData = await student.create(clientData);
+    const currencyData = await currency.create(clientData);
 
     res.json({
-      message: "student successfully created",
-      clientData: studentData,
+      message: "currency successfully created",
+      clientData: currencyData,
     });
   } catch (error) {
     res.json({
@@ -22,11 +21,11 @@ export const createCurrency = async (req, res) => {
 // for get product
 export const getCurrency = async (req, res) => {
   try {
-    const allStudents = await student.findAll();
+    const allCurrency = await currency.findAll();
     res.status(200).json({
       success: true,
-      message: "Retrieve all students successfully",
-      data: allStudents,
+      message: "Retrieve all currency successfully",
+      data: allCurrency,
     });
   } catch (error) {
     res.json({
@@ -37,29 +36,29 @@ export const getCurrency = async (req, res) => {
   }
 };
 
-// for delete student
+// for delete currency
 export const deleteCurrency = async (req, res) => {
   try {
-    const studentID = req.params.id;
-    // student is table name
-    const existStudent = await student.findOne({ where: { id: studentID } });
-    console.log("exist student", existStudent);
+    const currencyID = req.params.id;
+    // currency is table name
+    const existCurrency = await currency.findOne({ where: { id: currencyID } });
+    console.log("exist currency", existCurrency);
 
-    // IF STUDENT ID NOT FOUND
-    if (!existStudent) {
+    // IF currency ID NOT FOUND
+    if (!existCurrency) {
       res.status(404).json({
         success: false,
-        message: `user not found with this id ${existStudent}`,
+        message: `user not found with this id ${existCurrency}`,
       });
     }
-    // DELETE STUDENT WITH MATCHING ID
-    await existStudent.destroy();
+    // DELETE currency WITH MATCHING ID
+    await existCurrency.destroy();
 
-    // IF DELETE THAN SHOW A MESSAGE AND DELETED STUDENT
+    // IF DELETE THAN SHOW A MESSAGE AND DELETED currency
     res.json({
       success: true,
-      message: `student deleted successfully with this ${studentID} id `,
-      data: existStudent,
+      message: `currency deleted successfully with this ${currencyID} id `,
+      data: existCurrency,
     });
 
     // IF ERROR THAN SHOW THE ERROR
@@ -75,23 +74,23 @@ export const deleteCurrency = async (req, res) => {
 // GET SINGLE USER
 export const getSingleCurrency = async (req, res) => {
   try {
-    const studentID = req.params.id;
-    // student is table name
-    const existStudent = await student.findByPk(studentID);
+    const currencyID = req.params.id;
+    // currency is table name
+    const existCurrency = await currency.findByPk(currencyID);
 
-    // IF STUDENT ID NOT FOUND
-    if (!existStudent) {
+    // IF currency ID NOT FOUND
+    if (!existCurrency) {
       res.status(404).json({
         success: false,
-        message: `user not found with this id ${existStudent}`,
+        message: `user not found with this id ${existCurrency}`,
       });
     }
 
-    // IF DELETE THAN SHOW A MESSAGE AND DELETED STUDENT
+    // IF DELETE THAN SHOW A MESSAGE AND DELETED currency
     res.json({
       success: true,
-      message: `get single student successfully with this ${studentID} id `,
-      data: existStudent,
+      message: `get single currency successfully with this ${currencyID} id `,
+      data: existCurrency,
     });
   } catch (error) {
     res.status(500).json({
@@ -102,29 +101,29 @@ export const getSingleCurrency = async (req, res) => {
   }
 };
 
-// UPDATE STUDENT
+// UPDATE currency
 export const updateCurrency = async (req, res) => {
   try {
-    const studentID = req.params.id;
-    const updatedStudent = req.body;
+    const currencyID = req.params.id;
+    const updatedCurrency = req.body;
 
-    // student is table name
-    const existStudent = await student.findByPk(studentID);
+    // currency is table name
+    const existCurrency = await currency.findByPk(currencyID);
 
-    // IF STUDENT ID NOT FOUND
-    if (!existStudent) {
+    // IF currency ID NOT FOUND
+    if (!existCurrency) {
       res.status(404).json({
         success: false,
-        message: `user not found with this id ${existStudent}`,
+        message: `user not found with this id ${existCurrency}`,
       });
     }
-    const studentData = await existStudent.update(updatedStudent)
+    const currencyData = await existCurrency.update(updatedCurrency)
 
-    // IF DELETE THAN SHOW A MESSAGE AND DELETED STUDENT
+    // IF DELETE THAN SHOW A MESSAGE AND DELETED currency
     res.json({
       success: true,
-      message: `student updated successfully `,
-      data: studentData,
+      message: `currency updated successfully `,
+      data: currencyData,
     });
   } catch (error) {
     res.status(500).json({
