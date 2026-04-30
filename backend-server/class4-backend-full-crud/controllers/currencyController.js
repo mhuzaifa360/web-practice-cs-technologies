@@ -1,15 +1,31 @@
 import currency from "../models/currencyModel.js";
 
+
 // for create currency
 export const createCurrency = async (req, res) => {
-  const clientData = req.body;
   try {
-    const currencyData = await currency.create(clientData);
+    const clientData = req.body;
 
-    res.json({
+    // CHECK IF ALREADY EXIST
+    const existCurrency = await currency.findOne({
+      where: { code: clientData.code },
+    });
+    if (existCurrency) {
+      return res.status(400).json({
+        success: false,
+        message: `This ${clientData.code} currency code already exist!`,
+      });
+    }
+
+    // CREATE IF NOT EXIST
+    const currencyData = await currency.create(clientData);
+    return res.status(201).json({
+      success: true,
       message: "currency successfully created",
       clientData: currencyData,
     });
+
+    // CHECK IF ERROR FOUND
   } catch (error) {
     res.json({
       message: "internal server error",
@@ -18,7 +34,7 @@ export const createCurrency = async (req, res) => {
   }
 };
 
-// for get product
+// for get currency
 export const getCurrency = async (req, res) => {
   try {
     const allCurrency = await currency.findAll();
@@ -71,7 +87,7 @@ export const deleteCurrency = async (req, res) => {
   }
 };
 
-// GET SINGLE USER
+// GET SINGLE currency
 export const getSingleCurrency = async (req, res) => {
   try {
     const currencyID = req.params.id;
@@ -117,7 +133,7 @@ export const updateCurrency = async (req, res) => {
         message: `user not found with this id ${existCurrency}`,
       });
     }
-    const currencyData = await existCurrency.update(updatedCurrency)
+    const currencyData = await existCurrency.update(updatedCurrency);
 
     // IF DELETE THAN SHOW A MESSAGE AND DELETED currency
     res.json({
